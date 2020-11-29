@@ -1,19 +1,14 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using ConsoleApplication1.core;
 
 namespace ConsoleApplication1.MironGurevich
 {
-    public class GetQuadraticEquation : GetLinearEquation
+    public class GetQuadraticEquation : GetLinearEquation, EquationInterface
     {
         protected float GetDiscriminant (float a, float b, float c) {
             return b * b - 4 * a * c;
-        }
-        public List<float> Roots (float a, float b, float c) {
-            if (a == 0) {
-                 return new List<float>(){(base.Root(b, c))};
-            }
-            float d = GetDiscriminant(a, b, c);
 
             if (d < 0) {
                 throw new Exception("The roots in not found");
