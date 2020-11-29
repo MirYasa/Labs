@@ -1,27 +1,28 @@
 using System;
-using System.Collections.Generic;
-using ConsoleApplication1.core;
-
-namespace ConsoleApplication1.MironGurevich {
+using Labs.core;
+namespace Labs.MironGurevich {
     public class MironLog : LogAbstract, LogInterface { 
         private static MironLog instance;
        private MironLog(){}
-
        public static MironLog GetInstance() {
            if (instance == null) {
                instance = new MironLog();
            }
            return instance;
        }
-       public void Log(string str) {
-           GetInstance().log.Add(str);
+	 public static void Log(string str) {
+           GetInstance()._log(str);
        }
         public override void _write() {
-            foreach (var val in base.log) {
-                Console.WriteLine(val);
-            }
+		var result = String.Join("\r\n", log);
+            Console.WriteLine(result);
         }
-        public void Write() {
+
+        public override void _log(string str) {
+            GetInstance().log.Add(str);
+        }
+
+        public static void Write() {
             GetInstance()._write();
         }
     }

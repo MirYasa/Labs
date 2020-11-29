@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-
-namespace ConsoleApplication1.core {
+namespace Labs.core {
     public interface LogInterface {
-        void Log(string str);
-        void Write();
-
+	static void Log(string str){}
+	static void Write() {}
     }
-}
+} 

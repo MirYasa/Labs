@@ -1,14 +1,12 @@
 using System;
-
-namespace ConsoleApplication1.MironGurevich
-{
-    public class GetLinearEquation
-    {
-        public float Root (float a, float b)
-        {
+namespace Labs.MironGurevich {
+    public class GetLinearEquation {
+        protected float Root (float a, float b) {
             if (a == 0) {
-                throw new Exception("The root is not found");
+		  throw new MironException("The equation does not exist");
+
             }
+            MironLog.Log("This is linear equation");
             return (b * -1)  / a;
         }
     }
