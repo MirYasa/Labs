@@ -1,8 +1,10 @@
 using System;
-using Labs.core;
-namespace Labs.MironGurevich {
+using Lab.core;
+using System.IO;
+
+namespace Lab.MironGurevich {
     public class MironLog : LogAbstract, LogInterface { 
-        private static MironLog instance;
+       private static MironLog instance;
        private MironLog(){}
        public static MironLog GetInstance() {
            if (instance == null) {
@@ -16,6 +18,16 @@ namespace Labs.MironGurevich {
         public override void _write() {
 		var result = String.Join("\r\n", log);
             Console.WriteLine(result);
+
+            string path = $"Log";
+            string pathFile = $"{path}/{DateTime.Now.ToString("dd.MM.yyyy_hh.mm.ss.ffff").Trim()}.log";
+
+            if (Directory.Exists(path) == false) {
+                Directory.CreateDirectory(path);
+            }
+            using (StreamWriter sw = new StreamWriter(pathFile)) {
+                sw.WriteLine(result.Trim());
+            }
         }
 
         public override void _log(string str) {

@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Labs.core;
-namespace Labs.MironGurevich
+using Lab.core;
+namespace Lab.MironGurevich
 {
     public class GetQuadraticEquation : GetLinearEquation, EquationInterface
     {
         protected float GetDiscriminant (float a, float b, float c) {
             return b * b - 4 * a * c;
         }
-        public List<float> Roots (float a, float b, float c) {
+        public List<float> Solve (float a, float b, float c) {
             if (a == 0) {
                  return new List<float>(){(base.Root(b, c))};
             }

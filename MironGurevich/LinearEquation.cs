@@ -1,5 +1,5 @@
 using System;
-namespace Labs.MironGurevich {
+namespace Lab.MironGurevich {
     public class GetLinearEquation {
         protected float Root (float a, float b) {
             if (a == 0) {
